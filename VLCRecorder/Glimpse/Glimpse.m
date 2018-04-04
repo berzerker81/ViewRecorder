@@ -22,10 +22,6 @@
 @property (strong, nonatomic)   GlimpseAssetWriter          *writer;
 @property (copy, nonatomic)     NSURL                       *fileOutput;
 
-@property (nonatomic) AVCaptureDevice        * audioDevice;
-@property (nonatomic) AVCaptureDeviceInput   * audioInput;
-@property (nonatomic) AVCaptureAudioDataOutput * audioOutput;
-@property (nonatomic) AVCaptureSession       * capSession;
 
 - (UIImage *)imageFromView:(UIView *)view;
 @end
@@ -44,6 +40,16 @@ static double const GlimpseFramesPerSecond = 24.0;
     return self;
 }
 
+-(void)dealloc
+{
+    _writer = nil;
+    _callback = nil;
+    _sourceView = nil;
+    _fileOutput = nil;
+    
+    
+}
+
 #pragma mark - View Capture
 
 - (void)startRecordingView:(UIView *)view withCallback:(GlimpseCompletedCallback)callback
@@ -53,8 +59,11 @@ static double const GlimpseFramesPerSecond = 24.0;
 
 - (void)startRecordingView:(UIView *)view onCompletion:(GlimpseCompletedCallback)block
 {
+    if(self.writer == nil)
+    {
+        _writer = [[GlimpseAssetWriter alloc] init];
+    }
     
-//    [self startAudioCapture];
     self.sourceView = view;
     self.callback   = block;
     self.writer.size = view.bounds.size;
@@ -91,6 +100,7 @@ static double const GlimpseFramesPerSecond = 24.0;
 
     [self.writer writeVideoFromImageFrames:^(NSURL *outputPath) {
         self.callback(outputPath);
+        _writer = nil;
     }];
 }
 
@@ -109,25 +119,5 @@ static double const GlimpseFramesPerSecond = 24.0;
     return rasterizedView;
 }
 
-#pragma mark - Audio Capture
-//
-//- (void)startAudioCapture
-//{
-//    NSError * error = nil;
-//    _audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
-//    _audioInput  = [AVCaptureDeviceInput deviceInputWithDevice:_audioDevice error:&error];
-//    _audioOutput = [[AVCaptureAudioDataOutput alloc] init];
-//
-//    _capSession = [[AVCaptureSession alloc] init];
-//    [_capSession addInput:_audioInput];
-//    [_capSession addOutput:_audioOutput];
-//    _capSession.sessionPreset = AVCaptureSessionPresetLow;
-//    [_capSession startRunning];
-//}
-//
-//-(void)stopAudioCapture
-//{
-//    [_capSession stopRunning];
-//}
 
 @end

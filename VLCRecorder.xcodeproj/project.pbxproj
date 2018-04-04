@@ -82,7 +82,7 @@
 		94C539BB206DC8BF00A49486 /* VLCRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VLCRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C539BF206DC8BF00A49486 /* VLCRecorderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLCRecorderUITests.m; sourceTree = "<group>"; };
 		94C539C1206DC8BF00A49486 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		94C539CD206DC8E400A49486 /* DynamicMobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicMobileVLCKit.framework; path = ../../../Documents/VLCKitFramework/DynamicMobileVLCKit.framework; sourceTree = "<group>"; };
+		94C539CD206DC8E400A49486 /* DynamicMobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicMobileVLCKit.framework; path = ../../../../VLCKitFramework/DynamicMobileVLCKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,7 +495,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VBLJEZR6VM;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../Documents/VLCKitFramework\"";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../VLCKitFramework\"";
 				INFOPLIST_FILE = VLCRecorder/Info.plist;
 				INSTALL_PATH = "@loader_path/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -523,7 +523,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = VBLJEZR6VM;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../Documents/VLCKitFramework\"";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../../../VLCKitFramework\"";
 				INFOPLIST_FILE = VLCRecorder/Info.plist;
 				INSTALL_PATH = "@loader_path/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
