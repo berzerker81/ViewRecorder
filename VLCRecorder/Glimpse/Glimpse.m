@@ -11,6 +11,7 @@
 #import "GlimpseAssetWriter.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "CVPixelWriter.h"
 
 @interface Glimpse()
 {
@@ -19,8 +20,9 @@
 }
 @property (copy, nonatomic)     GlimpseCompletedCallback    callback;
 @property (strong, nonatomic)   UIView                      *sourceView;
-@property (strong, nonatomic)   GlimpseAssetWriter          *writer;
+//@property (strong, nonatomic)   GlimpseAssetWriter          *writer;
 @property (copy, nonatomic)     NSURL                       *fileOutput;
+@property (nonatomic)           CVPixelWriter               *writer;
 
 
 - (UIImage *)imageFromView:(UIView *)view;
@@ -35,7 +37,8 @@ static double const GlimpseFramesPerSecond = 24.0;
     self = [super init];
     if (self)
     {
-        self.writer = [[GlimpseAssetWriter alloc] init];
+//        self.writer = [[GlimpseAssetWriter alloc] init];
+
     }
     return self;
 }
@@ -61,14 +64,14 @@ static double const GlimpseFramesPerSecond = 24.0;
 {
     if(self.writer == nil)
     {
-        _writer = [[GlimpseAssetWriter alloc] init];
+        _writer = [[CVPixelWriter alloc] initWithSize:view.bounds.size maxBufSize:100];
     }
     
     self.sourceView = view;
     self.callback   = block;
-    self.writer.size = view.bounds.size;
+//    self.writer.size = view.bounds.size;
 	
-	self.writer.framesPerSecond = GlimpseFramesPerSecond;
+	self.writer.fps = GlimpseFramesPerSecond;
 
     self.writer.startDate = [NSDate date];
     
@@ -82,7 +85,8 @@ static double const GlimpseFramesPerSecond = 24.0;
             @autoreleasepool
             {
                 UIImage *viewImage = [weakSelf imageFromView:weakSelf.sourceView];
-                [weakSelf.writer writeFrameWithImage:[viewImage copy]];
+//                [weakSelf.writer writeFrameWithImage:[viewImage copy]];
+                [weakSelf.writer storeBuf:viewImage.copy];
                 viewImage = nil;
 
             }
@@ -97,11 +101,13 @@ static double const GlimpseFramesPerSecond = 24.0;
     dispatch_source_cancel(_source);
     
     self.writer.endDate = [NSDate date];
-
-    [self.writer writeVideoFromImageFrames:^(NSURL *outputPath) {
-        self.callback(outputPath);
-        _writer = nil;
+    [self.writer write:^(NSError * err) {
+        
     }];
+//    [self.writer writeVideoFromImageFrames:^(NSURL *outputPath) {
+//        self.callback(outputPath);
+//        _writer = nil;
+//    }];
 }
 
 - (__autoreleasing UIImage *)imageFromView:(UIView *)view

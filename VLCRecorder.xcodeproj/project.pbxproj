@@ -11,6 +11,7 @@
 		943BD43B206E3BE70016D1EF /* Glimpse.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BD439206E3BE70016D1EF /* Glimpse.m */; };
 		943BD43C206E3BE70016D1EF /* GlimpseAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BD43A206E3BE70016D1EF /* GlimpseAssetWriter.m */; };
 		9447F9372071E3A5006EF32B /* AudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447F9362071E3A5006EF32B /* AudioRecorder.m */; };
+		948319DB207620AD00AFFE5A /* CVPixelWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 948319DA207620AD00AFFE5A /* CVPixelWriter.m */; };
 		9483DC722073225900F1622C /* ViewRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9483DC712073225900F1622C /* ViewRecorder.m */; };
 		94C5399D206DC8BF00A49486 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C5399C206DC8BF00A49486 /* AppDelegate.m */; };
 		94C539A0206DC8BF00A49486 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C5399F206DC8BF00A49486 /* ViewController.m */; };
@@ -64,6 +65,8 @@
 		9447F9352071E3A5006EF32B /* AudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioRecorder.h; sourceTree = "<group>"; };
 		9447F9362071E3A5006EF32B /* AudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecorder.m; sourceTree = "<group>"; };
 		9447FA7920722860006EF32B /* VLCRecorder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VLCRecorder-Bridging-Header.h"; sourceTree = "<group>"; };
+		948319D9207620AD00AFFE5A /* CVPixelWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVPixelWriter.h; sourceTree = "<group>"; };
+		948319DA207620AD00AFFE5A /* CVPixelWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVPixelWriter.m; sourceTree = "<group>"; };
 		9483DC702073225900F1622C /* ViewRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewRecorder.h; sourceTree = "<group>"; };
 		9483DC712073225900F1622C /* ViewRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewRecorder.m; sourceTree = "<group>"; };
 		94C53998206DC8BF00A49486 /* VLCRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLCRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +121,8 @@
 				943BD439206E3BE70016D1EF /* Glimpse.m */,
 				943BD438206E3BE70016D1EF /* GlimpseAssetWriter.h */,
 				943BD43A206E3BE70016D1EF /* GlimpseAssetWriter.m */,
+				948319D9207620AD00AFFE5A /* CVPixelWriter.h */,
+				948319DA207620AD00AFFE5A /* CVPixelWriter.m */,
 			);
 			path = Glimpse;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				943BD43B206E3BE70016D1EF /* Glimpse.m in Sources */,
 				9447F9372071E3A5006EF32B /* AudioRecorder.m in Sources */,
 				943BD432206E15330016D1EF /* UIView+capture.m in Sources */,
+				948319DB207620AD00AFFE5A /* CVPixelWriter.m in Sources */,
 				9483DC722073225900F1622C /* ViewRecorder.m in Sources */,
 				94C539A0206DC8BF00A49486 /* ViewController.m in Sources */,
 				94C539AB206DC8BF00A49486 /* main.m in Sources */,
